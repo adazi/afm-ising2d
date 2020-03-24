@@ -3,7 +3,7 @@
 *Author:* Adam Iaizzi  
 *email:* iaizzi@bu.edu  
 *website:* https://www.iaizzi.me  
-*gitlab repo:* (https://gitlab.com/adazi/isingAFM)
+*gitlab repo:* https://gitlab.com/adazi/afm-ising2d  
 Copyright Adam Iaizzi 2020
 
 This code is a Metropolis algorithm Monte Carlo simulation of the 2D Ising antiferromagnet with an external magnetic field. This code is a modified version of `ising2d.f90` originally written by Prof. Anders W. Sandvik [source](http://physics.bu.edu/~py502/lectures5/examples/index.html), used with permission. 
@@ -11,22 +11,22 @@ This code is a Metropolis algorithm Monte Carlo simulation of the 2D Ising antif
 ## Quick Start
 
 Clone the repository to your machine:  
-```
-git clone https://gitlab.com/adazi/isingAFM.git
+```bash
+git clone https://gitlab.com/adazi/afm-ising2d.git
 ```
 
 Navigate to the source code directory:  
-```
-cd isingAFM/
+```bash
+cd afm-ising2d/
 ```
 
 To compile:  
-```
+```bash
 gfortran -O3 ising.f90
 ```
 
 To run:  
-```
+```bash
 ./a.out
 ```
 
@@ -153,11 +153,11 @@ Writing the full spin state out to disk can be time consuming, and for large sys
 
 To turn off the writing out to `spins.txt` the user can just comment out lines 158-160: 
 
-```
-	!write spin configuration out to file at end of bin
-    open(10,file='spins.txt',position='append')
-    write(10,*) spin(:)
-    close(10)
+```fortran
+!write spin configuration out to file at end of bin
+open(10,file='spins.txt',position='append')
+write(10,*) spin(:)
+close(10)
 ``` 
 
 **Tip:** Since this ACSII text format is extremely in efficient, compressing the `spins.txt` file using `gzip` can reduce the space required by more than a factor of 10. 
@@ -167,7 +167,7 @@ To turn off the writing out to `spins.txt` the user can just comment out lines 1
 Reproducing the freezing process in [my paper](https://arxiv.org/abs/2001.09268) with this code is quite simple. If we set the program up with L=32, T=0.01, h=1 and run it, it will quickly reach a frozen state. The problem is that only one such state will be reached, and then the program is stuck there forever. 
 
 We will need to run the program many times to average over many final states. That can be done with a simple bash script: 
-```
+```bash
 for x in {1..200}
 do
     cat seed.in #check that random seed is different each time
