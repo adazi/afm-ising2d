@@ -5,6 +5,8 @@
 *website:* https://www.iaizzi.me  
 *gitlab repo:* https://gitlab.com/adazi/afm-ising2d  
 Copyright Adam Iaizzi 2020
+Archived with Zenodo 
+[![DOI](https://zenodo.org/badge/264165581.svg)](https://zenodo.org/badge/latestdoi/264165581)
 
 This code is a Metropolis algorithm Monte Carlo simulation of the 2D Ising antiferromagnet with an external magnetic field. This code is a modified version of `ising2d.f90` originally written by Prof. Anders W. Sandvik [source](http://physics.bu.edu/~py502/lectures5/examples/index.html), used with permission. 
 
